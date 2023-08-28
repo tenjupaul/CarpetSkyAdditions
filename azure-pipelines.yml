@@ -10,9 +10,12 @@ pool:
   name: default
 
 steps:
-- task: CmdLine@2
+- task: PowerShell@2
   inputs:
-    script: 'cov-build --dir idir gradlew.bat build'
+    targetType: 'inline'
+    script: |
+      $env:AZP_AGENT_CLEANUP_PSMODULES_IN_POWERSHELL=$true
+      cov-build --dir idir gradlew.bat build'
 
 
 
