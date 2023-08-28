@@ -10,12 +10,9 @@ pool:
   name: default
 
 steps:
-- task: PowerShell@2
+- task: CmdLine@2
   inputs:
-    targetType: 'inline'
-    script: |
-      $Env:PSModulePath=""
-      cov-build --dir idir gradlew.bat build
+    script: 'cov-build --dir idir gradlew.bat build'
 
 
 
