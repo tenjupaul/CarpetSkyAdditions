@@ -18,3 +18,4 @@ steps:
       export PATH=$PATH:/opt/cov-analysis/bin
       set -x
       cov-configure --java
+      cov-build --dir idir ./gradlew clean build
