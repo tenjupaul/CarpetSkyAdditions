@@ -14,7 +14,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      $env:PSModulePath
+      $Env:PSModulePath=""
       cov-build --dir idir gradlew.bat build
 
 
