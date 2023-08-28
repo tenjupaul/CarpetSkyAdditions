@@ -13,8 +13,10 @@ variables:
   COVERITY_TOOL_HOME: '/opt/cov-analysis’
 
 steps:
-- bash: |
-    export PATH=$PATH:$COVERITY_TOOL_HOME/bin
-    set -x
-    cov-configure --java
-  displayName: 'Coverity Analysis'
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      export PATH=$PATH:$COVERITY_TOOL_HOME/bin
+      set -x
+      cov-configure --java
