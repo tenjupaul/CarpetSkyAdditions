@@ -9,14 +9,12 @@ trigger:
 pool:
   name: tenju-ubuntu-vm
 
-variables:
-  COVERITY_TOOL_HOME: '/opt/cov-analysis’
 
 steps:
 - task: Bash@3
   inputs:
     targetType: 'inline'
     script: |
-      export PATH=$PATH:$COVERITY_TOOL_HOME/bin
+      export PATH=$PATH:/opt/cov-analysis/bin
       set -x
       cov-configure --java
