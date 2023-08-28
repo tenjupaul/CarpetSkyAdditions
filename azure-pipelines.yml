@@ -10,9 +10,9 @@ pool:
   name: default
 
 steps:
-- task: Bash@3
+
+- task: CmdLine@2
   inputs:
-    targetType: 'inline'
     script: 'cov-build --dir idir gradlew.bat build'
 
 
