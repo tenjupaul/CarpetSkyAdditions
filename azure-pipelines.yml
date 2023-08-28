@@ -7,7 +7,7 @@ trigger:
 - main
 
 pool:
-  name: default
+  name: tenju-ubuntu-vm
 
 steps:
 - task: Bash@3
