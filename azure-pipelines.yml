@@ -14,8 +14,9 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      $env:AZP_AGENT_CLEANUP_PSMODULES_IN_POWERSHELL=$true
-      cov-build --dir idir gradlew.bat build'
+      # Write your PowerShell commands here.
+      
+      Write-Host "Hello World"
 
 
 
