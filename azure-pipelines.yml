@@ -20,4 +20,5 @@ steps:
       cov-configure --java
       cov-build --dir idir ./gradlew clean build -x :spotlessYamlCheck
       cov-analyze --dir idir --all --webapp-security --distrust-all --strip-path $(Build.SourcesDirectory)
+      cov-commit-defects --dir idir --ticker-mode none --url $(COV_URL) --stream CarpetSkyAdditions-main --description $(Build.BuildURI) --version $(Build.SourceVersion)
   displayName: 'Coverity' 
