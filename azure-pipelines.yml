@@ -31,4 +31,4 @@ steps:
     streamName: 'CarpetSkyAdditions-main'
     coverityBuildDirectory: '$(Build.Repository.LocalPath)'
     buildCommand: './gradlew clean build -x :spotlessYamlCheck'
-    displayName: 'Coverity - With Plugin'
+  displayName: 'Coverity - With Plugin'
