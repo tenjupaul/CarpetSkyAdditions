@@ -15,8 +15,6 @@ steps:
 - task: Bash@3
   inputs:
     targetType: 'inline'
-    variables:
-    - group: windows-local-coverity
     script: |
       export PATH=$PATH:/opt/cov-analysis/bin
       set -x
