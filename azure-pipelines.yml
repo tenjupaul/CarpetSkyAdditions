@@ -20,4 +20,4 @@ steps:
       cov-configure --java
       cov-build --dir idir ./gradlew clean build -x :spotlessYamlCheck
       cov-analyze --dir idir --all --webapp-security --distrust-all --strip-path $(Build.SourcesDirectory)
-      displayName: 'Coverity' 
+  displayName: 'Coverity' 
