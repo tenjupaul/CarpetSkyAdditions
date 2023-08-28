@@ -9,6 +9,8 @@ trigger:
 pool:
   name: tenju-ubuntu-vm
 
+variables:
+- group: windows-local-coverity
 
 steps:
 - task: Bash@3
