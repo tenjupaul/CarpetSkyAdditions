@@ -10,23 +10,23 @@ pool:
   name: tenju-ubuntu-vm
 
 steps:
-- task: Bash@3
-  inputs:
-    targetType: 'inline'
-    script: |
-      export PATH=$PATH:/opt/cov-analysis/bin
-      set -x
-      cov-configure --java
-      cov-build --dir idir ./gradlew clean build -x :spotlessYamlCheck
-      cov-analyze --dir idir --all --webapp-security --distrust-all --strip-path $(Build.SourcesDirectory)
-      cov-commit-defects --dir idir --ticker-mode none --url $(COV_URL) --stream CarpetSkyAdditions-main --description $(Build.BuildURI) --version $(Build.SourceVersion)
-  displayName: 'Coverity - No Plugin' 
-
-# - task: synopsys-coverity@1
+# - task: Bash@3
 #   inputs:
-#     coverityService: 'cov-connect(ubuntu-vm)'
-#     projectName: 'CarpetSkyAdditions'
-#     streamName: 'CarpetSkyAdditions-main'
-#     coverityBuildDirectory: '$(Build.Repository.LocalPath)'
-#     buildCommand: './gradlew clean build -x :spotlessYamlCheck'
-#   displayName: 'Coverity - With Plugin'
+#     targetType: 'inline'
+#     script: |
+#       export PATH=$PATH:/opt/cov-analysis/bin
+#       set -x
+#       cov-configure --java
+#       cov-build --dir idir ./gradlew clean build -x :spotlessYamlCheck
+#       cov-analyze --dir idir --all --webapp-security --distrust-all --strip-path $(Build.SourcesDirectory)
+#       cov-commit-defects --dir idir --ticker-mode none --url $(COV_URL) --stream CarpetSkyAdditions-main --description $(Build.BuildURI) --version $(Build.SourceVersion)
+#   displayName: 'Coverity - No Plugin' 
+
+- task: synopsys-coverity@1
+  inputs:
+    coverityService: 'cov-connect(ubuntu-vm)'
+    projectName: 'CarpetSkyAdditions'
+    streamName: 'CarpetSkyAdditions-main'
+    coverityBuildDirectory: '$(Build.Repository.LocalPath)'
+    buildCommand: './gradlew clean build -x :spotlessYamlCheck'
+  displayName: 'Coverity - With Plugin'
